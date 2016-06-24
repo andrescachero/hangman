@@ -19,3 +19,9 @@ end
 Then(/^the hidden word shows "(.*?)"$/) do |arg1|
   last_response.body.should =~ /#{arg1}/m
 end
+
+Then(/^the display show the mismatch letter$/) do
+  last_response.should have_xpath( "//div[@id=\"wrong-letters\"]") do |td|
+    td.should contain( "x" )
+  end
+end
