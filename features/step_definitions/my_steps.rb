@@ -11,8 +11,9 @@ Given(/^the user start a new game with word "(.*?)"$/) do |arg1|
   visit('/')
 end
 
-When(/^a letter "(.*?)" is found on the word$/) do |arg1|
-  visit('/new-letter')
+When(/^a letter "(.*?)" is submited$/) do |value|
+  fill_in("new_letter", :with => value)
+  click_button("ok")
 end
 
 Then(/^the hidden word shows "(.*?)"$/) do |arg1|

@@ -6,5 +6,5 @@ Scenario: the user starts a new game
 
 Scenario: A new letter is raised
 	Given the user start a new game with word "testword"
-	When a letter "t" is found on the word
+	When a letter "t" is submited
 	Then the hidden word shows "t--t----"

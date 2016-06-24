@@ -9,8 +9,8 @@ get '/' do
 	erb :index
 end
 
-get '/new-letter' do
-	@@hangman.match_letter("t")
+post '/new-letter' do
+	@@hangman.match_letter(params[:new_letter])
 	@hidden_word = @@hangman.hidden_word
 	erb :index
 end
