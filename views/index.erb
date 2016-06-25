@@ -1,4 +1,9 @@
-<style type="text/css">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HANGMAN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style type="text/css">
     p.hidden-word, div#message-board {
         font-size: 70px;
     }
@@ -7,24 +12,32 @@
     }
     input { 
         text-transform: uppercase;
+        display: inline;
     }
+    
 </style>
-<h1>HANGMAN</h1>
-<a href="/">RESTART</a>
-<h2>Hello meatbag. Let see how long it takes me to kill you</h2>
-<div>
-    You have <span id="lives"><%= @lives %></span> shoots left
-</div>
-<p class="hidden-word"><%= @hidden_word%></p>
-<form method="POST" action="/new-letter">
-    <p>Enter a letter: <input autofocus type="text" name="new_letter" /></p>
-    <input type="submit" value="ok">
-</form>
+</head>
+<body class="container">
+    <h1>HANGMAN</h1>
+    <a href="/" class="btn btn-danger">RESTART</a>
+    <h2>Hello meatbag. Let see how long it takes me to kill you</h2>
+    <div>
+        You have <span id="lives"><%= @lives %></span> shoots left
+    </div>
+    <p class="hidden-word"><%= @hidden_word%></p>
+    <form method="POST" action="/new-letter"  class="form-inline">
+        <p>Enter a letter: <input autofocus type="text" name="new_letter" /></p>
+        <input type="submit" value="ok" class="btn btn-success">
+    </form>
 
-<div id="message-board">
-    <%= @messages || "&nbsp;" %>
-</div>
+    <div id="message-board">
+        <%= @messages || "&nbsp;" %>
+    </div>
 
-<div id="wrong-letters">
-    <%= @wrong_letters.join('-') %>
-</div>
+    <div id="wrong-letters">
+        <%= @wrong_letters.join('-') %>
+    </div>
+</body>
+</html>
+
+
