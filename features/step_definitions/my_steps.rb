@@ -2,11 +2,6 @@ Given(/^the user starts a new game$/) do
   visit('/')
 end
 
-Then(/^the screen shows the hidden word "(.*?)" hidden$/) do |word|
-	text = '-' * word.length
-  	last_response.body.should =~ /#{text}/m
-end
-
 Given(/^the user start a new game with word "(.*?)"$/) do |arg1|
   visit('/')
 end
@@ -23,5 +18,11 @@ end
 Then(/^the display show the mismatch letter$/) do
   last_response.should have_xpath( "//div[@id=\"wrong-letters\"]") do |td|
     td.should contain( "x" )
+  end
+end
+
+Then(/^the lives counter is (\d+)$/) do |arg1|
+  last_response.should have_xpath( "//span[@id=\"lives\"]") do |td|
+    td.should contain( arg1 )
   end
 end

@@ -22,4 +22,11 @@ describe Hangman do
         expect(hangman.wrong_letters).to eq ['a','b','c']
     end
 
+    it 'shows the remaining lives' do
+        hangman = Hangman.new
+        hangman.word = "testword"
+        hangman.match_letter("x")
+        expect(hangman.lives).to eq 6
+    end
+
 end
