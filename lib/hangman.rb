@@ -6,7 +6,7 @@ class Hangman
 		@status = "&nbsp;"
 	end
 	def word=(guess_word)
-		@word = guess_word
+		@word = guess_word.upcase
 		@hidden_word = '-' * @word.length
 	end
 
@@ -19,6 +19,7 @@ class Hangman
 	end
 
 	def match_letter(letter)
+		letter.upcase!
 		s = @word
 		positions = (0 ... s.length).find_all { |i| s[i,1] == letter }
 		if positions.empty?

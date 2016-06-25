@@ -17,7 +17,7 @@ end
 
 Then(/^the display show the mismatch letter$/) do
   last_response.should have_xpath( "//div[@id=\"wrong-letters\"]") do |td|
-    td.should contain( "x" )
+    td.should contain( "X" )
   end
 end
 

@@ -8,12 +8,12 @@ Scenario: the user starts a new game
 Scenario: A new letter in word is raised
 	Given the user start a new game with word "testword"
 	When a letter "t" is submited
-	Then the hidden word shows "t--t----"
+	Then the hidden word shows "T--T----"
 	And the lives counter is 7
 
 Scenario: A new letter NOT in word is raised
 	Given the user start a new game with word "testword"
-	When a letter "x" is submited
+	When a letter "X" is submited
 	Then the display show the mismatch letter
 	And the lives counter is 6
 	And the displays shows " " message
@@ -27,5 +27,5 @@ Scenario: the user wins a game
 	And a letter "o" is submited
 	And a letter "r" is submited
 	And a letter "d" is submited
-	Then the hidden word shows "testword"
+	Then the hidden word shows "TESTWORD"
 	And the displays shows "You win" message

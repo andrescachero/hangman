@@ -10,7 +10,7 @@ describe Hangman do
         hangman = Hangman.new
         hangman.word = "testword"
         hangman.match_letter("t")
-        expect(hangman.hidden_word).to eq 't--t----'
+        expect(hangman.hidden_word).to eq 'T--T----'
     end
 
     it 'acumulates wrong letters' do
@@ -19,7 +19,7 @@ describe Hangman do
         hangman.match_letter("a")
         hangman.match_letter("b")
         hangman.match_letter("c")
-        expect(hangman.wrong_letters).to eq ['a','b','c']
+        expect(hangman.wrong_letters).to eq ['A','B','C']
     end
 
     it 'shows the remaining lives' do

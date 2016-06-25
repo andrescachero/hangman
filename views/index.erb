@@ -1,21 +1,30 @@
 <style type="text/css">
-	p.hidden-word, div.message-board {
-		font-size: 70px;
-	}
+    p.hidden-word, div#message-board {
+        font-size: 70px;
+    }
+    span#lives {
+        font-weight: 800;
+    }
+    input { 
+        text-transform: uppercase;
+    }
 </style>
+<h1>HANGMAN</h1>
+<a href="/">RESTART</a>
+<h2>Hello meatbag. Let see how long it takes me to kill you</h2>
 <div>
-	Lives: <span  id="lives"><%= @lives %></span>
+    You have <span id="lives"><%= @lives %></span> shoots left
 </div>
 <p class="hidden-word"><%= @hidden_word%></p>
 <form method="POST" action="/new-letter">
-	<p>Ingrese su letra: <input type="text" name="new_letter" /></p>
-	<input type="submit" value="ok">
+    <p>Enter a letter: <input autofocus type="text" name="new_letter" /></p>
+    <input type="submit" value="ok">
 </form>
 
 <div id="message-board">
-	<%= @messages || "&nbsp;" %>
+    <%= @messages || "&nbsp;" %>
 </div>
 
 <div id="wrong-letters">
-	<%= @wrong_letters.join('-') %>
+    <%= @wrong_letters.join('-') %>
 </div>
