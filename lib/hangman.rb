@@ -3,6 +3,7 @@ class Hangman
 		@hidden_word = ''
 		@wrong_letters = []
 		@lives = 7
+		@status = "&nbsp;"
 	end
 	def word=(guess_word)
 		@word = guess_word
@@ -27,6 +28,7 @@ class Hangman
 		positions.each do |pos|
 		  	@hidden_word[pos.to_i] = letter
 		end
+		update_status
 		@hidden_word
 	end
 
@@ -36,5 +38,18 @@ class Hangman
 
 	def lives
 		@lives
+	end
+
+	def status
+		@status
+	end
+
+	def update_status
+		if @lives == 0
+			@status = "You die"
+		else
+			positions = (0 ... @hidden_word.length).find_all { |i| @hidden_word[i,1] == '-' }
+			@status = "You win" if positions.empty?
+		end
 	end
 end

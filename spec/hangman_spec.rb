@@ -29,4 +29,20 @@ describe Hangman do
         expect(hangman.lives).to eq 6
     end
 
+    it 'shows win message' do
+        hangman = Hangman.new
+        hangman.word = "abc"
+        hangman.match_letter("a")
+        hangman.match_letter("b")
+        hangman.match_letter("c")
+        expect(hangman.status).to eq "You win"
+    end
+
+    it 'shows lose message' do
+        hangman = Hangman.new
+        hangman.word = "abc"
+        7.times { hangman.match_letter("d") }
+        expect(hangman.status).to eq "You die"
+    end
+
 end

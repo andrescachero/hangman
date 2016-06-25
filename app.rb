@@ -16,5 +16,7 @@ post '/new-letter' do
 	@hidden_word = @@hangman.hidden_word
 	@wrong_letters = @@hangman.wrong_letters
 	@lives = @@hangman.lives
+	@messages = @@hangman.status
+		
 	erb :index
 end

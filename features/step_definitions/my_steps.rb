@@ -26,3 +26,10 @@ Then(/^the lives counter is (\d+)$/) do |arg1|
     td.should contain( arg1 )
   end
 end
+
+Then(/^the displays shows "(.*?)" message$/) do |arg1|
+  last_response.should have_xpath( "//div[@id=\"message-board\"]") do |td|
+    td.should contain( arg1 )
+  end
+end
+
